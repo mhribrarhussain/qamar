@@ -143,6 +143,43 @@
             box-shadow: 0 12px 24px rgba(25, 93, 230, 0.4);
         }
         
+        /* Primary Button Hover Effect */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        .btn-primary:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(25, 93, 230, 0.4);
+        }
+        
+        /* Secondary Button Hover Effect */
+        .btn-secondary {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
         /* Typography Updates */
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
@@ -232,7 +269,7 @@
                     href="#services" onclick="toggleMobileMenu()">Services</a>
                 <a class="text-base font-medium text-neutral-900 dark:text-white hover:text-primary transition-colors"
                     href="#work" onclick="toggleMobileMenu()">Work</a>
-                <a class="flex items-center justify-center rounded-lg h-10 px-6 bg-primary hover:bg-primary/90 transition-colors text-white text-sm font-bold shadow-lg shadow-primary/20 w-full"
+                <a class="nav-button flex items-center justify-center rounded-lg h-10 px-6 bg-primary transition-all duration-300 text-white text-sm font-bold shadow-lg shadow-primary/20 w-full"
                     href="https://wa.me/923063783658" target="_blank" onclick="toggleMobileMenu()">
                     Hire Me
                 </a>
@@ -255,11 +292,11 @@
                         and retention.
                     </p>
                     <div class="flex flex-wrap gap-4 pt-2" data-aos="fade-up" data-aos-delay="200">
-                        <a class="flex items-center justify-center rounded-lg h-12 px-8 bg-primary hover:bg-primary/90 text-white font-bold transition-transform active:scale-95"
+                        <a class="btn-primary flex items-center justify-center rounded-lg h-12 px-8 bg-primary text-white font-bold"
                             href="#work">
                             View Work
                         </a>
-                        <a class="flex items-center justify-center rounded-lg h-12 px-8 bg-neutral-200 dark:bg-neutral-800 hover:bg-neutral-300 dark:hover:bg-neutral-700 text-neutral-900 dark:text-white font-bold transition-colors"
+                        <a class="btn-secondary flex items-center justify-center rounded-lg h-12 px-8 bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-white font-bold"
                             href="https://wa.me/923063783658" target="_blank">
                             Contact Me
                         </a>
@@ -929,7 +966,7 @@
                                     placeholder="Tell me about your project..." rows="4"></textarea>
                             </div>
                             <button onclick="sendToWhatsapp()"
-                                class="mt-2 w-full py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-lg transition-colors"
+                                class="btn-primary mt-2 w-full py-4 bg-primary text-white font-bold rounded-lg"
                                 type="button">
                                 Send Message
                             </button>
