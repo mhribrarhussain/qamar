@@ -1065,20 +1065,41 @@
         });
     </script>
     <script>
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        // Mobile Menu Toggle - Wait for DOM
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-        function toggleMobileMenu() {
-            mobileMenu.classList.toggle('hidden');
-            const icon = mobileMenuBtn.querySelector('span');
-            if (mobileMenu.classList.contains('hidden')) {
-                icon.textContent = 'menu';
-            } else {
-                icon.textContent = 'close';
+            function toggleMobileMenu() {
+                if (!mobileMenu || !mobileMenuBtn) {
+                    console.error('Mobile menu elements not found');
+                    return;
+                }
+                
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuBtn.querySelector('span');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.textContent = 'menu';
+                    if (icon.hasAttribute('data-icon')) {
+                        icon.setAttribute('data-icon', 'menu');
+                    }
+                } else {
+                    icon.textContent = 'close';
+                    if (icon.hasAttribute('data-icon')) {
+                        icon.setAttribute('data-icon', 'close');
+                    }
+                }
             }
-        }
 
-        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            // Add click event listener
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+                console.log('Mobile menu initialized');
+            } else {
+                console.error('Mobile menu button not found');
+            }
+        });
+
 
         function sendToWhatsapp() {
             const name = document.getElementById('name').value;
