@@ -94,6 +94,55 @@
             display: inline-block;
         }
         
+        /* Navbar Link Hover Effects */
+        .nav-link {
+            position: relative;
+            display: inline-block;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background: linear-gradient(90deg, #195de6, #4f8dff);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link:hover {
+            transform: translateY(-1px);
+        }
+        
+        /* Navbar Button Hover Effect */
+        .nav-button {
+            position: relative;
+            overflow: hidden;
+        }
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        .nav-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(25, 93, 230, 0.4);
+        }
+        
         /* Typography Updates */
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
@@ -154,11 +203,11 @@
                 </div>
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center gap-8">
-                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#home">Home</a>
-                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#about">About</a>
-                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#services">Services</a>
-                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#work">Work</a>
-                    <a class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary hover:bg-primary/90 transition-colors text-white text-sm font-bold shadow-lg shadow-primary/20"
+                    <a class="nav-link text-sm font-medium hover:text-primary transition-all duration-300" href="#home">Home</a>
+                    <a class="nav-link text-sm font-medium hover:text-primary transition-all duration-300" href="#about">About</a>
+                    <a class="nav-link text-sm font-medium hover:text-primary transition-all duration-300" href="#services">Services</a>
+                    <a class="nav-link text-sm font-medium hover:text-primary transition-all duration-300" href="#work">Work</a>
+                    <a class="nav-button flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary transition-all duration-300 text-white text-sm font-bold shadow-lg shadow-primary/20"
                         href="https://wa.me/923063783658" target="_blank">
                         Hire Me
                     </a>
