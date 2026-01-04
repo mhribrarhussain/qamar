@@ -94,6 +94,25 @@
             display: inline-block;
         }
         
+        /* Material Icons Fallback - Show text until font loads */
+        .material-symbols-outlined::before {
+            font-family: system-ui, -apple-system, sans-serif !important;
+        }
+        .material-symbols-outlined[data-icon="menu"]::before {
+            content: '☰';
+            font-size: 28px;
+        }
+        .material-symbols-outlined[data-icon="close"]::before {
+            content: '✕';
+            font-size: 28px;
+        }
+        /* Hide fallback when font is loaded */
+        @supports (font-variation-settings: normal) {
+            .material-symbols-outlined::before {
+                content: '' !important;
+            }
+        }
+        
         /* Navbar Link Hover Effects */
         .nav-link {
             position: relative;
@@ -252,7 +271,7 @@
                 <!-- Mobile Menu Button (Icon only for visual) -->
                 <div class="md:hidden">
                     <button id="mobile-menu-btn" class="text-neutral-900 dark:text-white focus:outline-none">
-                        <span class="material-symbols-outlined cursor-pointer text-3xl">menu</span>
+                        <span class="material-symbols-outlined cursor-pointer text-3xl" data-icon="menu">menu</span>
                     </button>
                 </div>
             </div>
