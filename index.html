@@ -60,6 +60,19 @@
                 'opsz' 24
         }
 
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
         /* Slider Animation */
         @keyframes scroll {
             0% {
@@ -67,7 +80,7 @@
             }
 
             100% {
-                transform: translateX(calc(-250px * 4 - 2rem * 4));
+                transform: translateX(calc(-350px * 4 - 2rem * 4));
             }
         }
 
@@ -75,7 +88,7 @@
             animation: scroll 25s linear infinite;
             display: flex;
             gap: 2rem;
-            width: calc(250px * 8 + 2rem * 8);
+            width: calc(350px * 8 + 2rem * 8);
         }
 
         .slider-container:hover .slider-track {
@@ -96,7 +109,8 @@
                     <div class="size-8 text-primary flex items-center justify-center">
                         <span class="material-symbols-outlined text-3xl">trending_up</span>
                     </div>
-                    <h2 class="text-neutral-900 dark:text-white text-lg font-bold tracking-tight">Qamar Ecom
+                    <h2 class="text-neutral-900 dark:text-white text-lg font-bold tracking-tight">E-Commerce With Qamar
+                        Abbas
                     </h2>
                 </div>
                 <!-- Desktop Menu -->
@@ -106,7 +120,7 @@
                     <a class="text-sm font-medium hover:text-primary transition-colors" href="#services">Services</a>
                     <a class="text-sm font-medium hover:text-primary transition-colors" href="#work">Work</a>
                     <a class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary hover:bg-primary/90 transition-colors text-white text-sm font-bold shadow-lg shadow-primary/20"
-                        href="https://wa.me/923137005254" target="_blank">
+                        href="https://wa.me/923063783658" target="_blank">
                         Hire Me
                     </a>
                 </div>
@@ -131,7 +145,7 @@
                 <a class="text-base font-medium text-neutral-900 dark:text-white hover:text-primary transition-colors"
                     href="#work" onclick="toggleMobileMenu()">Work</a>
                 <a class="flex items-center justify-center rounded-lg h-10 px-6 bg-primary hover:bg-primary/90 transition-colors text-white text-sm font-bold shadow-lg shadow-primary/20 w-full"
-                    href="https://wa.me/923137005254" target="_blank" onclick="toggleMobileMenu()">
+                    href="https://wa.me/923063783658" target="_blank" onclick="toggleMobileMenu()">
                     Hire Me
                 </a>
             </div>
@@ -157,7 +171,7 @@
                             View Work
                         </a>
                         <a class="flex items-center justify-center rounded-lg h-12 px-8 bg-neutral-200 dark:bg-neutral-800 hover:bg-neutral-300 dark:hover:bg-neutral-700 text-neutral-900 dark:text-white font-bold transition-colors"
-                            href="https://wa.me/923137005254" target="_blank">
+                            href="https://wa.me/923063783658" target="_blank">
                             Contact Me
                         </a>
                     </div>
@@ -166,7 +180,7 @@
                 <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
                     <div class="relative w-full max-w-[500px] aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-neutral-100 dark:bg-neutral-800"
                         data-alt="Professional marketer analyzing data on a tablet in a modern office"
-                        style="background-image: url('./images/hero.jpg'); background-size: cover; background-position: center;">
+                        style="background-image: url('./images/hero_new.jpg'); background-size: cover; background-position: center;">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                         <div class="absolute bottom-6 left-6 right-6">
                             <div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl text-white">
@@ -222,64 +236,108 @@
         </section>
         <!-- Services Section -->
         <section class="py-24 px-4 sm:px-10" id="services">
-            <div class="max-w-[1120px] mx-auto">
-                <div class="flex flex-col gap-2 mb-16 md:text-center">
+            <div class="max-w-[1280px] mx-auto relative group/slider">
+                <div class="flex flex-col gap-2 mb-10 md:text-center px-4 sm:px-10">
                     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">How I Can Help</h2>
                     <p class="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
                         Comprehensive digital strategies tailored to your business goals.
                     </p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Service 1 -->
+
+                <!-- Slider Buttons -->
+                <button onclick="scrollContainer('services-slider', 'left')"
+                    class="absolute left-2 top-1/2 z-10 -translate-y-1/2 bg-white dark:bg-surface-dark shadow-lg rounded-full p-2 text-neutral-800 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all opacity-0 group-hover/slider:opacity-100 hidden md:block border border-neutral-200 dark:border-neutral-800">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <button onclick="scrollContainer('services-slider', 'right')"
+                    class="absolute right-2 top-1/2 z-10 -translate-y-1/2 bg-white dark:bg-surface-dark shadow-lg rounded-full p-2 text-neutral-800 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all opacity-0 group-hover/slider:opacity-100 hidden md:block border border-neutral-200 dark:border-neutral-800">
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+
+                <div id="services-slider"
+                    class="flex overflow-x-auto snap-x snap-mandatory gap-6 scroll-smooth hide-scrollbar px-4 sm:px-10 pb-4">
+                    <!-- Service 1: Shopify -->
                     <div
-                        class="group p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-neutral-200 dark:border-neutral-800 hover:border-primary/50 transition-colors hover:shadow-lg dark:hover:shadow-primary/5">
+                        class="min-w-[300px] md:min-w-[320px] snap-center group p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-neutral-200 dark:border-neutral-800 hover:border-primary/50 transition-colors hover:shadow-lg dark:hover:shadow-primary/5">
+                        <div
+                            class="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined">storefront</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Shopify Store Creation</h3>
+                        <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">
+                            Complete setup of high-converting dropshipping or branded stores with premium themes.
+                        </p>
+                    </div>
+                    <!-- Service 2: Meta Ads -->
+                    <div
+                        class="min-w-[300px] md:min-w-[320px] snap-center group p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-neutral-200 dark:border-neutral-800 hover:border-primary/50 transition-colors hover:shadow-lg dark:hover:shadow-primary/5">
+                        <div
+                            class="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined">ads_click</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Meta Ads</h3>
+                        <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">
+                            Targeted Facebook and Instagram ad campaigns designed to maximize ROAS.
+                        </p>
+                    </div>
+                    <!-- Service 3: Tiktok Ads -->
+                    <div
+                        class="min-w-[300px] md:min-w-[320px] snap-center group p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-neutral-200 dark:border-neutral-800 hover:border-primary/50 transition-colors hover:shadow-lg dark:hover:shadow-primary/5">
+                        <div
+                            class="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined">campaign</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Tiktok Ads</h3>
+                        <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">
+                            Viral creative strategies and ad management to reach massive audiences on TikTok.
+                        </p>
+                    </div>
+                    <!-- Service 4: Google Ads -->
+                    <div
+                        class="min-w-[300px] md:min-w-[320px] snap-center group p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-neutral-200 dark:border-neutral-800 hover:border-primary/50 transition-colors hover:shadow-lg dark:hover:shadow-primary/5">
                         <div
                             class="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined">search</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">SEO &amp; SEM</h3>
+                        <h3 class="text-xl font-bold mb-2">Google Ads</h3>
                         <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">
-                            Dominating search results with technical SEO audits, keyword strategy, and high-converting
-                            PPC campaigns.
+                            Search, Display, and Shopping campaigns to capture high-intent customers.
                         </p>
                     </div>
-                    <!-- Service 2 -->
+                    <!-- Service 5: Social Media -->
                     <div
-                        class="group p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-neutral-200 dark:border-neutral-800 hover:border-primary/50 transition-colors hover:shadow-lg dark:hover:shadow-primary/5">
+                        class="min-w-[300px] md:min-w-[320px] snap-center group p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-neutral-200 dark:border-neutral-800 hover:border-primary/50 transition-colors hover:shadow-lg dark:hover:shadow-primary/5">
                         <div
                             class="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined">share</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">Social Media</h3>
+                        <h3 class="text-xl font-bold mb-2">Social Media Mgmt</h3>
                         <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">
-                            Building communities and brand loyalty through targeted content and paid social strategies
-                            on IG, LinkedIn &amp; TikTok.
+                            Full management of your social profiles to build community and brand loyalty.
                         </p>
                     </div>
-                    <!-- Service 3 -->
+                    <!-- Service 6: Graphic Designing -->
                     <div
-                        class="group p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-neutral-200 dark:border-neutral-800 hover:border-primary/50 transition-colors hover:shadow-lg dark:hover:shadow-primary/5">
+                        class="min-w-[300px] md:min-w-[320px] snap-center group p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-neutral-200 dark:border-neutral-800 hover:border-primary/50 transition-colors hover:shadow-lg dark:hover:shadow-primary/5">
                         <div
                             class="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined">edit_note</span>
+                            <span class="material-symbols-outlined">brush</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">Content Strategy</h3>
+                        <h3 class="text-xl font-bold mb-2">Graphic Designing</h3>
                         <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">
-                            Creating compelling narratives that drive traffic. Blogs, whitepapers, and video scripts
-                            that convert readers.
+                            Professional logos, ad creatives, and brand assets that stand out.
                         </p>
                     </div>
-                    <!-- Service 4 -->
+                    <!-- Service 7: Product Hunting -->
                     <div
-                        class="group p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-neutral-200 dark:border-neutral-800 hover:border-primary/50 transition-colors hover:shadow-lg dark:hover:shadow-primary/5">
+                        class="min-w-[300px] md:min-w-[320px] snap-center group p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-neutral-200 dark:border-neutral-800 hover:border-primary/50 transition-colors hover:shadow-lg dark:hover:shadow-primary/5">
                         <div
                             class="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined">mail</span>
+                            <span class="material-symbols-outlined">explore</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">Email Marketing</h3>
+                        <h3 class="text-xl font-bold mb-2">Product Hunting</h3>
                         <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">
-                            Automated flows and newsletters designed to nurture leads and increase customer lifetime
-                            value (LTV).
+                            Researching and identifying winning products with high profit potential.
                         </p>
                     </div>
                 </div>
@@ -287,83 +345,275 @@
         </section>
         <!-- Portfolio Section -->
         <section class="py-24 bg-surface-light dark:bg-surface-dark/30" id="work">
-            <div class="max-w-[1120px] mx-auto px-4 sm:px-10">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+            <div class="max-w-[1280px] mx-auto relative group/slider">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 px-4 sm:px-10">
                     <div>
                         <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">Featured Work</h2>
                         <p class="text-neutral-600 dark:text-neutral-400">Real results for real businesses.</p>
                     </div>
-                    <a class="text-primary font-bold hover:underline flex items-center gap-1" href="#">
-                        View All Projects <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Slider Buttons -->
+                <button onclick="scrollContainer('work-slider', 'left')"
+                    class="absolute left-2 top-[60%] z-10 -translate-y-1/2 bg-white dark:bg-surface-dark shadow-lg rounded-full p-2 text-neutral-800 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all opacity-0 group-hover/slider:opacity-100 hidden md:block border border-neutral-200 dark:border-neutral-800">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <button id="work-prev" onclick="scrollContainer('work-slider', 'left')"
+                    class="absolute left-2 top-[60%] z-10 -translate-y-1/2 bg-white dark:bg-surface-dark shadow-lg rounded-full p-2 text-neutral-800 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all opacity-0 pointer-events-none hidden md:block border border-neutral-200 dark:border-neutral-800">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <button id="work-next" onclick="scrollContainer('work-slider', 'right')"
+                    class="absolute right-2 top-[60%] z-10 -translate-y-1/2 bg-white dark:bg-surface-dark shadow-lg rounded-full p-2 text-neutral-800 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all opacity-100 hidden md:block border border-neutral-200 dark:border-neutral-800">
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+
+                <div id="work-slider"
+                    class="flex overflow-x-auto snap-x snap-mandatory gap-8 scroll-smooth hide-scrollbar px-4 sm:px-10 pb-4">
                     <!-- Project 1 -->
-                    <div class="group relative flex flex-col gap-4">
+                    <div class="min-w-[320px] md:min-w-[380px] snap-center group relative flex flex-col gap-4">
                         <div class="overflow-hidden rounded-xl aspect-[4/3] bg-neutral-200 dark:bg-neutral-800"
-                            data-alt="Abstract colorful dashboard interface showing rising graphs"
-                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDNEA7qc3bfKneRvjOvb2NdCd8ij85LAZS-WSxvHR4euhlOQD8fwQ4GUHJmr9EFITQ0307NYfZ4_BmNXgx3jgsdIDExtOY29LEBtXRWkJ-25DYY-v_KZ_vukU4qyRorl1gqK6VFG-qEToLJoSO4MdVFLIfVQiM5gcMseQr846tV7MjOpmukXaFFNfbp8CeW0UB7ZBI8-UhNyLzoP_FnenAB8jmi8hyNRNEtgfo9cgokx7V5WwyBOlpOv-Za6lB6qmleQK1zeCovCpM'); background-size: cover; background-position: center;">
-                            <div
-                                class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                <span class="text-white font-bold text-lg border border-white px-6 py-2 rounded-lg">View
-                                    Case Study</span>
-                            </div>
+                            data-alt="Portfolio Project 1"
+                            style="background-image: url('./images/1.jpeg'); background-size: cover; background-position: center;">
+
                         </div>
                         <div>
                             <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">E-Commerce</p>
-                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Fashion Brand Revenue
-                                Scale</h3>
-                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Implemented a full-funnel
-                                Facebook Ads strategy.</p>
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Western Clothing Scale
+                            </h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Gross sales of PKR 19.7M with
+                                137% growth.</p>
                             <div
                                 class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">
-                                +300% ROAS
+                                PKR 19.7M Sales
                             </div>
                         </div>
                     </div>
                     <!-- Project 2 -->
-                    <div class="group relative flex flex-col gap-4">
+                    <div class="min-w-[320px] md:min-w-[380px] snap-center group relative flex flex-col gap-4">
                         <div class="overflow-hidden rounded-xl aspect-[4/3] bg-neutral-200 dark:bg-neutral-800"
-                            data-alt="Laptop screen displaying SEO analytics and keyword data"
-                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJ3lxQZr0kA7r9kO1-WKSVwFLbExVKBGlMe5tP0fOBLFkIIuuBTwJ9ccnwDGHN3rf39Q0EsxvYEpsH3U-Ox-ap4zV4ve3B41ej2xivgKmyXh5BkCEEJeV5IhRJwbKYNTe-fx_9zWWix4dPkjBVDKyJeRfFc-GldwZ9PvGTIzSPsa4H_56ytKqdFsrrPlLt8aIO8zy4RB-e8F3V9pobcv-NGeEcZYox175T_8jyJ8UDlJOwFAnf2mh_xr4loiP4dz4r1hiuz2464B8'); background-size: cover; background-position: center;">
-                            <div
-                                class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                <span class="text-white font-bold text-lg border border-white px-6 py-2 rounded-lg">View
-                                    Case Study</span>
-                            </div>
+                            data-alt="Portfolio Project 2"
+                            style="background-image: url('./images/2.jpeg'); background-size: cover; background-position: center;">
+
                         </div>
                         <div>
-                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">B2B SaaS</p>
-                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Lead Gen Automation</h3>
-                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Redesigned landing pages and
-                                set up HubSpot workflows.</p>
+                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Marketing</p>
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Brand Awareness</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Expanding reach to new
+                                audiences.</p>
                             <div
                                 class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">
-                                45% Conversion Rate
+                                High Reach
                             </div>
                         </div>
                     </div>
                     <!-- Project 3 -->
-                    <div class="group relative flex flex-col gap-4">
+                    <div class="min-w-[320px] md:min-w-[380px] snap-center group relative flex flex-col gap-4">
                         <div class="overflow-hidden rounded-xl aspect-[4/3] bg-neutral-200 dark:bg-neutral-800"
-                            data-alt="Mobile phone showing social media application feed"
-                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAENy1-wn_qiEIWSFIo8MNc4cIpKqsVp9N3tPa_d7pzn-US1i6J6wv4RqqGBYqgW9RDBg1Hc2oTGIEX23wvNIqgbB5Q1MPydLZGO81ilPfAqgeJJ8tjg5kB9jRzEfctwRIQDDDPdKgm508yT-F0j-KmmTk21Bku0c7FKbDIaB2yeqYf23dALM5J6xofjlQY24aaHLxhOAl1oUx_f9vuWyQ54yctAxAVRAblkGKcNuRdACFWEc3AANsyfS8uyUZA_i_QvtpU6l1jhXU'); background-size: cover; background-position: center;">
-                            <div
-                                class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                <span class="text-white font-bold text-lg border border-white px-6 py-2 rounded-lg">View
-                                    Case Study</span>
-                            </div>
+                            data-alt="Portfolio Project 3"
+                            style="background-image: url('./images/3.jpeg'); background-size: cover; background-position: center;">
+
                         </div>
                         <div>
-                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Social Media</p>
-                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Viral Launch Campaign
+                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Social Media
+                            </p>
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Engagement Boost
                             </h3>
-                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Influencer marketing campaign
-                                for a beverage launch.</p>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Driving high
+                                interaction
+                                rates.</p>
                             <div
                                 class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">
-                                1.2M Impressions
+                                Viral Content
                             </div>
+                        </div>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="min-w-[320px] md:min-w-[380px] snap-center group relative flex flex-col gap-4">
+                        <div class="overflow-hidden rounded-xl aspect-[4/3] bg-neutral-200 dark:bg-neutral-800"
+                            data-alt="Portfolio Project 4"
+                            style="background-image: url('./images/4.jpeg'); background-size: cover; background-position: center;">
+
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Ads</p>
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Targeted
+                                Campaigns</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Precision
+                                targeting for max
+                                ROI.</p>
+                            <div
+                                class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">
+                                High ROAS
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 5 -->
+                    <div class="min-w-[320px] md:min-w-[380px] snap-center group relative flex flex-col gap-4">
+                        <div class="overflow-hidden rounded-xl aspect-[4/3] bg-neutral-200 dark:bg-neutral-800"
+                            data-alt="Portfolio Project 5"
+                            style="background-image: url('./images/5.jpeg'); background-size: cover; background-position: center;">
+
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Lead
+                                Gen</p>
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Customer
+                                Acquisition
+                            </h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Generating
+                                quality leads.</p>
+                            <div
+                                class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">
+                                Quality Leads
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 6 -->
+                    <div class="min-w-[320px] md:min-w-[380px] snap-center group relative flex flex-col gap-4">
+                        <div class="overflow-hidden rounded-xl aspect-[4/3] bg-neutral-200 dark:bg-neutral-800"
+                            data-alt="Portfolio Project 6"
+                            style="background-image: url('./images/6.jpeg'); background-size: cover; background-position: center;">
+
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">
+                                SEO</p>
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">
+                                Organic Growth</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Improving
+                                search visibility.
+                            </p>
+                            <div
+                                class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">
+                                Top Ranking
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 7 -->
+                    <div class="min-w-[320px] md:min-w-[380px] snap-center group relative flex flex-col gap-4">
+                        <div class="overflow-hidden rounded-xl aspect-[4/3] bg-neutral-200 dark:bg-neutral-800"
+                            data-alt="Portfolio Project 7"
+                            style="background-image: url('./images/7.jpeg'); background-size: cover; background-position: center;">
+
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">
+                                Content</p>
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">
+                                Visual Storytelling</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">
+                                Compelling creative assets.
+                            </p>
+                            <div
+                                class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">
+                                High CTR
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 8 -->
+                    <div class="min-w-[320px] md:min-w-[380px] snap-center group relative flex flex-col gap-4">
+                        <div class="overflow-hidden rounded-xl aspect-[4/3] bg-neutral-200 dark:bg-neutral-800"
+                            data-alt="Portfolio Project 8"
+                            style="background-image: url('./images/8.jpeg'); background-size: cover; background-position: center;">
+
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">
+                                Strategy</p>
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">
+                                Market Expansion</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">
+                                Entering new territories.</p>
+                            <div
+                                class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">
+                                Growth
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Project 9 -->
+                    <div class="min-w-[320px] md:min-w-[380px] snap-center group relative flex flex-col gap-4">
+                        <div class="overflow-hidden rounded-xl aspect-[4/3] bg-neutral-200 dark:bg-neutral-800"
+                            data-alt="Portfolio Project 9"
+                            style="background-image: url('./images/9.jpeg'); background-size: cover; background-position: center;">
+
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">
+                                PPC</p>
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">
+                                Ad Optimization</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">
+                                Lowering CPA.</p>
+                            <div
+                                class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">
+                                Low CPA
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Project 10 -->
+                    <div class="min-w-[320px] md:min-w-[380px] snap-center group relative flex flex-col gap-4">
+                        <div class="overflow-hidden rounded-xl aspect-[4/3] bg-neutral-200 dark:bg-neutral-800"
+                            data-alt="Portfolio Project 10"
+                            style="background-image: url('./images/10.jpeg'); background-size: cover; background-position: center;">
+
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">
+                                Social</p>
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">
+                                Community Building</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">
+                                Fostering brand loyalty.</p>
+                            <div
+                                class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">
+                                Loyal Base
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Project 11 -->
+                    <div class="min-w-[320px] md:min-w-[380px] snap-center group relative flex flex-col gap-4">
+                        <div class="overflow-hidden rounded-xl aspect-[4/3] bg-neutral-200 dark:bg-neutral-800"
+                            data-alt="Portfolio Project 11"
+                            style="background-image: url('./images/11.jpeg'); background-size: cover; background-position: center;">
+
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">
+                                Optimization</p>
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">
+                                Store Performance</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">
+                                Speed and conversion fixes.
+                            </p>
+                            <div
+                                class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">
+                                Fast Load
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Project 12 -->
+                    <div class="min-w-[320px] md:min-w-[380px] snap-center group relative flex flex-col gap-4">
+                        <div class="overflow-hidden rounded-xl aspect-[4/3] bg-neutral-200 dark:bg-neutral-800"
+                            data-alt="Portfolio Project 12"
+                            style="background-image: url('./images/12.jpeg'); background-size: cover; background-position: center;">
+
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">
+                                Analysis</p>
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">
+                                Data Insights</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">
+                                Actionable reporting.</p>
+                            <div
+                                class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">
+                                Real Data
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -372,7 +622,7 @@
         <!-- Testimonials -->
         <section class="py-24 px-4 sm:px-10">
             <div class="max-w-[960px] mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-16">Client Stories</h2>
+                <h2 class="text-3xl font-bold text-center mb-16">Stores by Ecom with Qamar</h2>
                 <div class="slider-container overflow-hidden w-full relative">
                     <!-- Gradient overlays for fade effect -->
                     <div
@@ -382,55 +632,64 @@
                         class="absolute top-0 right-0 h-full w-20 bg-gradient-to-l from-background-light dark:from-background-dark to-transparent z-10">
                     </div>
 
-                    <div class="slider-track py-4">
+                    <div id="testimonial-slider"
+                        class="flex overflow-x-auto snap-x snap-mandatory gap-8 scroll-smooth hide-scrollbar py-4">
                         <!-- Testimonial 1 -->
                         <div
-                            class="w-[350px] flex-shrink-0 p-8 rounded-2xl bg-white dark:bg-surface-dark border border-neutral-100 dark:border-neutral-800 shadow-sm">
-                            <div class="text-primary mb-4">
-                                <span class="material-symbols-outlined text-4xl">format_quote</span>
-                            </div>
+                            class="w-[350px] flex-shrink-0 snap-center p-8 rounded-2xl bg-white dark:bg-surface-dark border border-neutral-100 dark:border-neutral-800 shadow-sm">
+
                             <p class="text-lg font-medium text-neutral-800 dark:text-neutral-200 mb-6">
-                                "Our e-commerce sales in Karachi skyrocketed by 150% in just 3 months. The localized ad
-                                strategy was a game changer for TechZone."
+                                "Our traditional pickle sales have seen incredible growth online. The targeted campaigns
+                                perfectly captured our audience's taste."
                             </p>
                             <div class="flex items-center gap-4">
                                 <div
                                     class="size-12 rounded-full bg-neutral-200 bg-cover bg-center flex items-center justify-center text-xl font-bold text-neutral-500">
-                                    AK
+                                    PP
                                 </div>
                                 <div>
-                                    <p class="font-bold text-neutral-900 dark:text-white">Ahmed Khan</p>
-                                    <p class="text-sm text-neutral-500">CEO at TechZone.pk</p>
+                                    <p class="font-bold text-neutral-900 dark:text-white">Store Manager</p>
+                                    <p class="text-sm text-neutral-500">Pakistan Pure Food</p>
+                                    <div class="mt-2 pt-2 border-t border-neutral-100 dark:border-neutral-700">
+                                        <a href="https://pakistanpurefood.pk/" target="_blank"
+                                            class="text-xs text-primary hover:underline inline-flex items-center gap-1 font-semibold">
+                                            Visit Store <span
+                                                class="material-symbols-outlined text-[10px]">open_in_new</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <!-- Testimonial 2 -->
                         <div
-                            class="w-[350px] flex-shrink-0 p-8 rounded-2xl bg-white dark:bg-surface-dark border border-neutral-100 dark:border-neutral-800 shadow-sm">
-                            <div class="text-primary mb-4">
-                                <span class="material-symbols-outlined text-4xl">format_quote</span>
-                            </div>
+                            class="w-[350px] flex-shrink-0 snap-center p-8 rounded-2xl bg-white dark:bg-surface-dark border border-neutral-100 dark:border-neutral-800 shadow-sm">
+
                             <p class="text-lg font-medium text-neutral-800 dark:text-neutral-200 mb-6">
-                                "Qamar Ecom helped GlowCosmetics build a loyal community on Instagram. The influencer
-                                campaign was viral!"
+                                "Qamar Ecom helped us build a loyal community for our luxury wear. The influencer
+                                campaign was absolutely viral!"
                             </p>
                             <div class="flex items-center gap-4">
                                 <div
                                     class="size-12 rounded-full bg-neutral-200 bg-cover bg-center flex items-center justify-center text-xl font-bold text-neutral-500">
-                                    FA
+                                    HK
                                 </div>
                                 <div>
-                                    <p class="font-bold text-neutral-900 dark:text-white">Fatima Ali</p>
-                                    <p class="text-sm text-neutral-500">Founder, GlowCosmetics</p>
+                                    <p class="font-bold text-neutral-900 dark:text-white">Hania Khan</p>
+                                    <p class="text-sm text-neutral-500">Founder, HaniaKhanOfficial</p>
+                                    <div class="mt-2 pt-2 border-t border-neutral-100 dark:border-neutral-700">
+                                        <a href="https://www.haniakhanofficial.com/" target="_blank"
+                                            class="text-xs text-primary hover:underline inline-flex items-center gap-1 font-semibold">
+                                            Visit Store <span
+                                                class="material-symbols-outlined text-[10px]">open_in_new</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <!-- Testimonial 3 -->
                         <div
-                            class="w-[350px] flex-shrink-0 p-8 rounded-2xl bg-white dark:bg-surface-dark border border-neutral-100 dark:border-neutral-800 shadow-sm">
-                            <div class="text-primary mb-4">
-                                <span class="material-symbols-outlined text-4xl">format_quote</span>
-                            </div>
+                            class="w-[350px] flex-shrink-0 snap-center p-8 rounded-2xl bg-white dark:bg-surface-dark border border-neutral-100 dark:border-neutral-800 shadow-sm">
+
                             <p class="text-lg font-medium text-neutral-800 dark:text-neutral-200 mb-6">
                                 "Professional, data-driven, and results-oriented. UrbanThreads is now a leading brand in
                                 Lahore thanks to the SEO efforts."
@@ -438,20 +697,25 @@
                             <div class="flex items-center gap-4">
                                 <div
                                     class="size-12 rounded-full bg-neutral-200 bg-cover bg-center flex items-center justify-center text-xl font-bold text-neutral-500">
-                                    BS
+                                    AF
                                 </div>
                                 <div>
-                                    <p class="font-bold text-neutral-900 dark:text-white">Bilal Sheikh</p>
-                                    <p class="text-sm text-neutral-500">Owner, UrbanThreads</p>
+                                    <p class="font-bold text-neutral-900 dark:text-white">Store Owner</p>
+                                    <p class="text-sm text-neutral-500">Anabiya Fabrics</p>
+                                    <div class="mt-2 pt-2 border-t border-neutral-100 dark:border-neutral-700">
+                                        <a href="https://anabiyafabrics.com/" target="_blank"
+                                            class="text-xs text-primary hover:underline inline-flex items-center gap-1 font-semibold">
+                                            Visit Store <span
+                                                class="material-symbols-outlined text-[10px]">open_in_new</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <!-- Testimonial 4 -->
                         <div
-                            class="w-[350px] flex-shrink-0 p-8 rounded-2xl bg-white dark:bg-surface-dark border border-neutral-100 dark:border-neutral-800 shadow-sm">
-                            <div class="text-primary mb-4">
-                                <span class="material-symbols-outlined text-4xl">format_quote</span>
-                            </div>
+                            class="w-[350px] flex-shrink-0 snap-center p-8 rounded-2xl bg-white dark:bg-surface-dark border border-neutral-100 dark:border-neutral-800 shadow-sm">
+
                             <p class="text-lg font-medium text-neutral-800 dark:text-neutral-200 mb-6">
                                 "The food delivery market is tough, but the targeted ads brought us consistent orders
                                 every day. Highly recommended!"
@@ -459,101 +723,23 @@
                             <div class="flex items-center gap-4">
                                 <div
                                     class="size-12 rounded-full bg-neutral-200 bg-cover bg-center flex items-center justify-center text-xl font-bold text-neutral-500">
-                                    ZM
+                                    PV
                                 </div>
                                 <div>
-                                    <p class="font-bold text-neutral-900 dark:text-white">Zainab Malik</p>
-                                    <p class="text-sm text-neutral-500">Marketing Head, Foodie</p>
+                                    <p class="font-bold text-neutral-900 dark:text-white">Marketing Head</p>
+                                    <p class="text-sm text-neutral-500">PureVital</p>
+                                    <div class="mt-2 pt-2 border-t border-neutral-100 dark:border-neutral-700">
+                                        <a href="https://purevital.pk/" target="_blank"
+                                            class="text-xs text-primary hover:underline inline-flex items-center gap-1 font-semibold">
+                                            Visit Store <span
+                                                class="material-symbols-outlined text-[10px]">open_in_new</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- DUPLICATE FOR INFINITE SCROLL -->
 
-                        <!-- Testimonial 1 -->
-                        <div
-                            class="w-[350px] flex-shrink-0 p-8 rounded-2xl bg-white dark:bg-surface-dark border border-neutral-100 dark:border-neutral-800 shadow-sm">
-                            <div class="text-primary mb-4">
-                                <span class="material-symbols-outlined text-4xl">format_quote</span>
-                            </div>
-                            <p class="text-lg font-medium text-neutral-800 dark:text-neutral-200 mb-6">
-                                "Our e-commerce sales in Karachi skyrocketed by 150% in just 3 months. The localized ad
-                                strategy was a game changer for TechZone."
-                            </p>
-                            <div class="flex items-center gap-4">
-                                <div
-                                    class="size-12 rounded-full bg-neutral-200 bg-cover bg-center flex items-center justify-center text-xl font-bold text-neutral-500">
-                                    AK
-                                </div>
-                                <div>
-                                    <p class="font-bold text-neutral-900 dark:text-white">Ahmed Khan</p>
-                                    <p class="text-sm text-neutral-500">CEO at TechZone.pk</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Testimonial 2 -->
-                        <div
-                            class="w-[350px] flex-shrink-0 p-8 rounded-2xl bg-white dark:bg-surface-dark border border-neutral-100 dark:border-neutral-800 shadow-sm">
-                            <div class="text-primary mb-4">
-                                <span class="material-symbols-outlined text-4xl">format_quote</span>
-                            </div>
-                            <p class="text-lg font-medium text-neutral-800 dark:text-neutral-200 mb-6">
-                                "Qamar Ecom helped GlowCosmetics build a loyal community on Instagram. The influencer
-                                campaign was viral!"
-                            </p>
-                            <div class="flex items-center gap-4">
-                                <div
-                                    class="size-12 rounded-full bg-neutral-200 bg-cover bg-center flex items-center justify-center text-xl font-bold text-neutral-500">
-                                    FA
-                                </div>
-                                <div>
-                                    <p class="font-bold text-neutral-900 dark:text-white">Fatima Ali</p>
-                                    <p class="text-sm text-neutral-500">Founder, GlowCosmetics</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Testimonial 3 -->
-                        <div
-                            class="w-[350px] flex-shrink-0 p-8 rounded-2xl bg-white dark:bg-surface-dark border border-neutral-100 dark:border-neutral-800 shadow-sm">
-                            <div class="text-primary mb-4">
-                                <span class="material-symbols-outlined text-4xl">format_quote</span>
-                            </div>
-                            <p class="text-lg font-medium text-neutral-800 dark:text-neutral-200 mb-6">
-                                "Professional, data-driven, and results-oriented. UrbanThreads is now a leading brand in
-                                Lahore thanks to the SEO efforts."
-                            </p>
-                            <div class="flex items-center gap-4">
-                                <div
-                                    class="size-12 rounded-full bg-neutral-200 bg-cover bg-center flex items-center justify-center text-xl font-bold text-neutral-500">
-                                    BS
-                                </div>
-                                <div>
-                                    <p class="font-bold text-neutral-900 dark:text-white">Bilal Sheikh</p>
-                                    <p class="text-sm text-neutral-500">Owner, UrbanThreads</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Testimonial 4 -->
-                        <div
-                            class="w-[350px] flex-shrink-0 p-8 rounded-2xl bg-white dark:bg-surface-dark border border-neutral-100 dark:border-neutral-800 shadow-sm">
-                            <div class="text-primary mb-4">
-                                <span class="material-symbols-outlined text-4xl">format_quote</span>
-                            </div>
-                            <p class="text-lg font-medium text-neutral-800 dark:text-neutral-200 mb-6">
-                                "The food delivery market is tough, but the targeted ads brought us consistent orders
-                                every day. Highly recommended!"
-                            </p>
-                            <div class="flex items-center gap-4">
-                                <div
-                                    class="size-12 rounded-full bg-neutral-200 bg-cover bg-center flex items-center justify-center text-xl font-bold text-neutral-500">
-                                    ZM
-                                </div>
-                                <div>
-                                    <p class="font-bold text-neutral-900 dark:text-white">Zainab Malik</p>
-                                    <p class="text-sm text-neutral-500">Marketing Head, Foodie</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -577,7 +763,9 @@
                                 </div>
                                 <div>
                                     <p class="text-sm font-medium text-neutral-500">Email Me</p>
-                                    <p class="text-lg font-bold text-neutral-900 dark:text-white">hello@marketer.com</p>
+                                    <a href="mailto:Qamarzamannaul@gmail.com"
+                                        class="text-lg font-bold text-neutral-900 dark:text-white hover:text-primary transition-colors">
+                                        Qamarzamannaul@gmail.com</a>
                                 </div>
                             </div>
                             <div class="flex items-center gap-4">
@@ -587,7 +775,9 @@
                                 </div>
                                 <div>
                                     <p class="text-sm font-medium text-neutral-500">Call Me</p>
-                                    <p class="text-lg font-bold text-neutral-900 dark:text-white">+92 313 700 5254</p>
+                                    <a href="tel:+923063783658"
+                                        class="text-lg font-bold text-neutral-900 dark:text-white hover:text-primary transition-colors">0306
+                                        378 3658</a>
                                 </div>
                             </div>
                             <div class="flex items-center gap-4">
@@ -651,14 +841,59 @@
     <footer
         class="bg-background-light dark:bg-background-dark py-10 border-t border-neutral-200 dark:border-neutral-800">
         <div class="max-w-[1280px] mx-auto px-4 text-center">
-            <div class="flex justify-center gap-6 mb-6 text-neutral-500">
-                <a class="hover:text-primary transition-colors" href="#">LinkedIn</a>
-                <a class="hover:text-primary transition-colors" href="#">Twitter</a>
-                <a class="hover:text-primary transition-colors"
-                    href="https://www.instagram.com/qamar_ecom?igsh=ejh0MjFteXNhdXdr" target="_blank">Instagram</a>
+            <div class="flex justify-center gap-4 mb-6 text-neutral-500 flex-wrap">
+                <!-- Instagram -->
+                <a class="group flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
+                    href="https://www.instagram.com/qamar_ecom?igsh=NHJjNWtyMWhwaW9v&utm_source=qr" target="_blank"
+                    aria-label="Instagram">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
+                </a>
+                <!-- TikTok -->
+                <a class="group flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400 hover:bg-black hover:text-white hover:border-black transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
+                    href="https://www.tiktok.com/@qamar_ecom?_r=1&_t=ZN-92nPDFTvjUs" target="_blank"
+                    aria-label="TikTok">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.03 5.93-.04 8.85-.09 3.66-3.32 7.37-7.16 6.96-3.47-.27-6.57-2.92-6.6-6.42-.03-3.08 2.25-6.2 5.54-6.36 1.15-.05 2.28.23 3.3.69v4.11c-.53-.51-1.22-.76-1.95-.73-1.65.1-3 1.55-2.82 3.23.14 1.34 1.35 2.51 2.7 2.4 1.57-.1 2.77-1.42 2.73-3V4.28c1.65 0 3.29 0 4.94 0-.02-1.42-.01-2.84-.01-4.26z" />
+                    </svg>
+                </a>
+                <!-- YouTube -->
+                <a class="group flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
+                    href="https://youtube.com/@qamarabbasecom?si=lwAdDgOKxSNX3tm2" target="_blank" aria-label="YouTube">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
+                </a>
+                <!-- Facebook -->
+                <a class="group flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
+                    href="https://www.facebook.com/share/1Ezz5tJMTf/?mibextid=wwXIfr" target="_blank"
+                    aria-label="Facebook">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                </a>
+                <!-- LinkedIn -->
+                <a class="group flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
+                    href="https://www.linkedin.com/in/qamar-abbas-23476b281?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+                    target="_blank" aria-label="LinkedIn">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                </a>
+                <!-- Email -->
+                <a class="group flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
+                    href="mailto:Qamarzamannaul@gmail.com" aria-label="Email">
+                    <span class="material-symbols-outlined text-2xl">mail</span>
+                </a>
             </div>
             <p class="text-sm text-neutral-500 dark:text-neutral-400">
-                © 2024 Marketer Portfolio. All rights reserved.
+                © 2026 Qamarzamannaul. All rights reserved.
             </p>
         </div>
     </footer>
@@ -696,11 +931,102 @@ Budget: ${budget}
 Message: ${message}`;
 
             const encodedText = encodeURIComponent(text);
-            const phoneNumber = "923137005254";
+            const phoneNumber = "923063783658";
             const url = `https://wa.me/${phoneNumber}?text=${encodedText}`;
 
             window.open(url, '_blank');
         }
+
+        function scrollContainer(containerId, direction) {
+            const container = document.getElementById(containerId);
+            const scrollAmount = 400; // Adjust scroll amount as needed
+            if (direction === 'left') {
+                container.scrollLeft -= scrollAmount;
+            } else {
+                container.scrollLeft += scrollAmount;
+            }
+        }
+
+        // Auto Scroll Functionality
+        function setupAutoScroll(containerId, delay = 3500) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            let autoScrollInterval;
+
+            function startAutoScroll() {
+                clearInterval(autoScrollInterval); // Prevent multiple intervals
+                autoScrollInterval = setInterval(() => {
+                    // Check if we reached the end
+                    if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+                        // Smooth scroll back to start
+                        container.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        // Scroll one card width (approx 350px)
+                        container.scrollBy({ left: 350, behavior: 'smooth' });
+                    }
+                }, delay);
+            }
+
+            function stopAutoScroll() {
+                clearInterval(autoScrollInterval);
+            }
+
+            // Start auto scroll initially
+            startAutoScroll();
+
+            // Pause on interaction
+            container.addEventListener('mouseenter', stopAutoScroll);
+            container.addEventListener('touchstart', stopAutoScroll);
+
+            // Resume on interaction end
+            container.addEventListener('mouseleave', startAutoScroll);
+            container.addEventListener('touchend', startAutoScroll);
+        }
+
+        // Update Button Visibility
+        function updateScrollButtons(containerId, prevBtnId, nextBtnId) {
+            const container = document.getElementById(containerId);
+            const prevBtn = document.getElementById(prevBtnId);
+            const nextBtn = document.getElementById(nextBtnId);
+
+            if (!container || !prevBtn || !nextBtn) return;
+
+            // Check if scroll is at start
+            if (container.scrollLeft <= 10) {
+                prevBtn.classList.add('opacity-0', 'pointer-events-none');
+                prevBtn.classList.remove('opacity-100', 'pointer-events-auto');
+            } else {
+                prevBtn.classList.remove('opacity-0', 'pointer-events-none');
+                prevBtn.classList.add('opacity-100', 'pointer-events-auto');
+            }
+
+            // Check if scroll is at end
+            if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+                nextBtn.classList.add('opacity-0', 'pointer-events-none');
+                nextBtn.classList.remove('opacity-100', 'pointer-events-auto');
+            } else {
+                nextBtn.classList.remove('opacity-0', 'pointer-events-none');
+                nextBtn.classList.add('opacity-100', 'pointer-events-auto');
+            }
+        }
+
+        // Initialize Auto Scroll for both sliders
+        document.addEventListener('DOMContentLoaded', () => {
+            setupAutoScroll('services-slider', 3000); // 3 seconds for services
+            setupAutoScroll('work-slider', 4000);     // 4 seconds for work
+            setupAutoScroll('testimonial-slider', 3500); // 3.5 seconds for testimonials
+
+            // Attach scroll listener for visibility
+            const workContainer = document.getElementById('work-slider');
+            if (workContainer) {
+                workContainer.addEventListener('scroll', () => {
+                    updateScrollButtons('work-slider', 'work-prev', 'work-next');
+                });
+                // Initial check
+                updateScrollButtons('work-slider', 'work-prev', 'work-next');
+            }
+        });
     </script>
 </body>
 
