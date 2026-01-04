@@ -4,7 +4,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" name="viewport" />
+    <meta name="theme-color" content="#195de6" />
     <title>Digital Marketer Portfolio</title>
     <!-- Material Symbols Link -->
     <link
@@ -238,11 +239,46 @@
         .slider-container:hover .slider-track {
             animation-play-state: paused;
         }
+        
+        /* Prevent horizontal scroll on mobile */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
     </style>
 </head>
 
 <body
     class="bg-background-light dark:bg-background-dark text-neutral-900 dark:text-neutral-50 font-display antialiased overflow-x-hidden">
+    <!-- Immediate Mobile Menu Setup -->
+    <script>
+        // Execute immediately without waiting
+        (function() {
+            // Set up when DOM is interactive (before DOMContentLoaded)
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initMobileMenu);
+            } else {
+                initMobileMenu();
+            }
+            
+            function initMobileMenu() {
+                var btn = document.getElementById('mobile-menu-btn');
+                var menu = document.getElementById('mobile-menu');
+                
+                if (btn && menu) {
+                    btn.onclick = function() {
+                        menu.classList.toggle('hidden');
+                        var icon = btn.querySelector('span');
+                        if (menu.classList.contains('hidden')) {
+                            icon.textContent = 'menu';
+                        } else {
+                            icon.textContent = 'close';
+                        }
+                    };
+                }
+            }
+        })();
+    </script>
     <!-- Top Navigation -->
     <nav
         class="fixed top-0 w-full z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800">
