@@ -10,14 +10,18 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <!-- Google Fonts: Inter -->
+    <!-- Google Fonts: Inter & Playfair Display -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+    
+
+
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <!-- Tailwind Config -->
@@ -34,7 +38,8 @@
                         "surface-dark": "#1a202c",
                     },
                     fontFamily: {
-                        "display": ["Inter", "sans-serif"]
+                        "sans": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
                     },
                     borderRadius: {
                         "DEFAULT": "0.375rem",
@@ -52,12 +57,41 @@
             scroll-behavior: smooth;
         }
 
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #1a202c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #4a5568;
+        }
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: #718096;
+        }
+
         .material-symbols-outlined {
             font-variation-settings:
                 'FILL' 0,
                 'wght' 400,
                 'GRAD' 0,
                 'opsz' 24
+        }
+        
+        /* Typography Updates */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
         }
 
         /* Hide scrollbar for Chrome, Safari and Opera */
@@ -156,16 +190,17 @@
         <section class="relative min-h-[90vh] flex items-center justify-center py-10 px-4 sm:px-10" id="home">
             <div class="max-w-[1120px] w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <!-- Text Content -->
-                <div class="flex flex-col gap-6 order-2 lg:order-1">
+                <div class="flex flex-col gap-6 order-2 lg:order-1" data-aos="fade-up">
                     <h1
                         class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight text-neutral-900 dark:text-white">
                         Scaling Brands through <span class="text-primary">Data-Driven</span> Marketing.
                     </h1>
-                    <p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-lg leading-relaxed">
+                    <p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-lg leading-relaxed"
+                        data-aos="fade-up" data-aos-delay="100">
                         Expert strategies in SEO, social media, and content marketing to help your business grow revenue
                         and retention.
                     </p>
-                    <div class="flex flex-wrap gap-4 pt-2">
+                    <div class="flex flex-wrap gap-4 pt-2" data-aos="fade-up" data-aos-delay="200">
                         <a class="flex items-center justify-center rounded-lg h-12 px-8 bg-primary hover:bg-primary/90 text-white font-bold transition-transform active:scale-95"
                             href="#work">
                             View Work
@@ -180,7 +215,8 @@
                 <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
                     <div class="relative w-full max-w-[500px] aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-neutral-100 dark:bg-neutral-800"
                         data-alt="Professional marketer analyzing data on a tablet in a modern office"
-                        style="background-image: url('./images/hero_new.jpg'); background-size: cover; background-position: center;">
+                        style="background-image: url('./images/hero_new.jpg'); background-size: cover; background-position: center;"
+                        data-aos="fade-left" data-aos-delay="200">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                         <div class="absolute bottom-6 left-6 right-6">
                             <div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl text-white">
@@ -192,15 +228,17 @@
                 </div>
             </div>
         </section>
+
+
         <!-- About & Stats Section -->
         <section class="py-20 bg-surface-light dark:bg-surface-dark/50" id="about">
             <div class="max-w-[960px] mx-auto px-4 sm:px-10">
-                <div class="flex flex-col gap-2 mb-10 text-center">
+                <div class="flex flex-col gap-2 mb-10 text-center" data-aos="fade-up">
                     <h2 class="text-3xl font-bold tracking-tight">About Me</h2>
                     <div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                    <div class="md:col-span-2">
+                    <div class="md:col-span-2" data-aos="fade-right">
                         <p class="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
                             I am a digital marketer with over 8 years of experience helping brands scale. My approach
                             combines data analytics with creative storytelling to deliver measurable results. I don't
@@ -219,7 +257,7 @@
                         </div>
                     </div>
                     <!-- Stats Card -->
-                    <div class="grid grid-cols-1 gap-4">
+                    <div class="grid grid-cols-1 gap-4" data-aos="fade-left">
                         <div
                             class="flex flex-col justify-center p-6 bg-background-light dark:bg-background-dark rounded-xl border border-neutral-200 dark:border-neutral-800">
                             <p class="text-4xl font-black text-primary">8+</p>
@@ -234,10 +272,11 @@
                 </div>
             </div>
         </section>
+
         <!-- Services Section -->
-        <section class="py-24 px-4 sm:px-10" id="services">
+        <section class="py-24 px-4 sm:px-10" id="services" data-aos="fade-up">
             <div class="max-w-[1280px] mx-auto relative group/slider">
-                <div class="flex flex-col gap-2 mb-10 md:text-center px-4 sm:px-10">
+                <div class="flex flex-col gap-2 mb-10 md:text-center px-4 sm:px-10" data-aos="fade-up">
                     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">How I Can Help</h2>
                     <p class="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
                         Comprehensive digital strategies tailored to your business goals.
@@ -346,7 +385,8 @@
         <!-- Portfolio Section -->
         <section class="py-24 bg-surface-light dark:bg-surface-dark/30" id="work">
             <div class="max-w-[1280px] mx-auto relative group/slider">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 px-4 sm:px-10">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 px-4 sm:px-10"
+                    data-aos="fade-up">
                     <div>
                         <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">Featured Work</h2>
                         <p class="text-neutral-600 dark:text-neutral-400">Real results for real businesses.</p>
@@ -378,7 +418,7 @@
                         </div>
                         <div>
                             <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">E-Commerce</p>
-                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Western Clothing Scale
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Sales Expert
                             </h3>
                             <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Gross sales of PKR 19.7M with
                                 137% growth.</p>
@@ -397,7 +437,7 @@
                         </div>
                         <div>
                             <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Marketing</p>
-                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Brand Awareness</h3>
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Sales Expert </h3>
                             <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Expanding reach to new
                                 audiences.</p>
                             <div
@@ -414,9 +454,9 @@
 
                         </div>
                         <div>
-                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Social Media
+                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">E-Commerce
                             </p>
-                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Engagement Boost
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Sales Expert
                             </h3>
                             <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Driving high
                                 interaction
@@ -435,9 +475,8 @@
 
                         </div>
                         <div>
-                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Ads</p>
-                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Targeted
-                                Campaigns</h3>
+                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">E-Commerce</p>
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Sales Expert </h3>
                             <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Precision
                                 targeting for max
                                 ROI.</p>
@@ -455,11 +494,8 @@
 
                         </div>
                         <div>
-                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Lead
-                                Gen</p>
-                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Customer
-                                Acquisition
-                            </h3>
+                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">E-Commerce</p>
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Sales Expert </h3>
                             <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Generating
                                 quality leads.</p>
                             <div
@@ -476,10 +512,8 @@
 
                         </div>
                         <div>
-                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">
-                                SEO</p>
-                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">
-                                Organic Growth</h3>
+                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">E-Commerce</p>
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Sales Expert </h3>
                             <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Improving
                                 search visibility.
                             </p>
@@ -497,10 +531,8 @@
 
                         </div>
                         <div>
-                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">
-                                Content</p>
-                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">
-                                Visual Storytelling</h3>
+                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Meta Ads</p>
+                            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Ads Expert </h3>
                             <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">
                                 Compelling creative assets.
                             </p>
@@ -622,8 +654,8 @@
         <!-- Testimonials -->
         <section class="py-24 px-4 sm:px-10">
             <div class="max-w-[960px] mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-16">Stores by Ecom with Qamar</h2>
-                <div class="slider-container overflow-hidden w-full relative">
+                <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade-up">Stores by Ecom with Qamar</h2>
+                <div class="slider-container overflow-hidden w-full relative" data-aos="fade-up" data-aos-delay="200">
                     <!-- Gradient overlays for fade effect -->
                     <div
                         class="absolute top-0 left-0 h-full w-20 bg-gradient-to-r from-background-light dark:from-background-dark to-transparent z-10">
@@ -792,6 +824,21 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Back to Top Button -->
+    <a href="#home" id="backToTop"
+        class="fixed bottom-24 right-8 bg-primary text-white p-3 rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-neutral-800 z-40">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </a>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/923063783658" target="_blank"
+        class="fixed bottom-8 right-8 bg-[#25D366] text-white p-3.5 rounded-full shadow-lg hover:bg-[#128C7E] transition-all duration-300 z-50 flex items-center justify-center hover:scale-110">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+
+    <!-- Footer -->
                     <!-- Form -->
                     <div
                         class="bg-white dark:bg-surface-dark p-8 rounded-2xl shadow-xl border border-neutral-100 dark:border-neutral-800">
@@ -897,6 +944,16 @@
             </p>
         </div>
     </footer>
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            delay: 100,
+        });
+    </script>
     <script>
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -954,78 +1011,201 @@ Message: ${message}`;
 
             let autoScrollInterval;
 
-            function startAutoScroll() {
-                clearInterval(autoScrollInterval); // Prevent multiple intervals
-                autoScrollInterval = setInterval(() => {
-                    // Check if we reached the end
-                    if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
-                        // Smooth scroll back to start
-                        container.scrollTo({ left: 0, behavior: 'smooth' });
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // --- Mobile Menu Toggle ---
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            function toggleMobileMenu() {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuBtn.querySelector('span');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.textContent = 'menu';
+                } else {
+                    icon.textContent = 'close';
+                }
+            }
+            if (mobileMenuBtn) { // Check if button exists before adding listener
+                mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            }
+
+            // --- Send to WhatsApp Form Logic ---
+            window.sendToWhatsapp = function() { // Make it globally accessible for onclick attribute
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const budget = document.getElementById('budget').value;
+                const message = document.getElementById('message').value;
+
+                if (!name || !email || !message) {
+                    alert('Please fill in all required fields (Name, Email, Message).');
+                    return;
+                }
+
+                const text = `*New Project Inquiry*\nName: ${name}\nEmail: ${email}\nBudget: ${budget}\nMessage: ${message}`;
+
+                const encodedText = encodeURIComponent(text);
+                const phoneNumber = "923063783658";
+                const url = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+
+                window.open(url, '_blank');
+            }
+
+            // --- 1. SLIDER LOGIC ---
+            function setupSlider(containerId, prevBtnId, nextBtnId) {
+                const container = document.getElementById(containerId);
+                const prevBtn = document.getElementById(prevBtnId);
+                const nextBtn = document.getElementById(nextBtnId);
+
+                if (!container || !prevBtn || !nextBtn) return;
+
+                const scrollAmount = 350; // Width of card + gap
+
+                const updateButtons = () => {
+                     // Check if scroll is at start
+                    if (container.scrollLeft <= 10) {
+                        prevBtn.classList.add('opacity-0', 'pointer-events-none');
+                        prevBtn.classList.remove('opacity-100', 'pointer-events-auto');
                     } else {
-                        // Scroll one card width (approx 350px)
-                        container.scrollBy({ left: 350, behavior: 'smooth' });
+                        prevBtn.classList.remove('opacity-0', 'pointer-events-none');
+                        prevBtn.classList.add('opacity-100', 'pointer-events-auto');
                     }
-                }, delay);
-            }
+                    // Check if scroll is at end
+                    if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+                        nextBtn.classList.add('opacity-0', 'pointer-events-none');
+                        nextBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                    } else {
+                        nextBtn.classList.remove('opacity-0', 'pointer-events-none');
+                        nextBtn.classList.add('opacity-100', 'pointer-events-auto');
+                    }
+                };
 
-            function stopAutoScroll() {
-                clearInterval(autoScrollInterval);
-            }
-
-            // Start auto scroll initially
-            startAutoScroll();
-
-            // Pause on interaction
-            container.addEventListener('mouseenter', stopAutoScroll);
-            container.addEventListener('touchstart', stopAutoScroll);
-
-            // Resume on interaction end
-            container.addEventListener('mouseleave', startAutoScroll);
-            container.addEventListener('touchend', startAutoScroll);
-        }
-
-        // Update Button Visibility
-        function updateScrollButtons(containerId, prevBtnId, nextBtnId) {
-            const container = document.getElementById(containerId);
-            const prevBtn = document.getElementById(prevBtnId);
-            const nextBtn = document.getElementById(nextBtnId);
-
-            if (!container || !prevBtn || !nextBtn) return;
-
-            // Check if scroll is at start
-            if (container.scrollLeft <= 10) {
-                prevBtn.classList.add('opacity-0', 'pointer-events-none');
-                prevBtn.classList.remove('opacity-100', 'pointer-events-auto');
-            } else {
-                prevBtn.classList.remove('opacity-0', 'pointer-events-none');
-                prevBtn.classList.add('opacity-100', 'pointer-events-auto');
-            }
-
-            // Check if scroll is at end
-            if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
-                nextBtn.classList.add('opacity-0', 'pointer-events-none');
-                nextBtn.classList.remove('opacity-100', 'pointer-events-auto');
-            } else {
-                nextBtn.classList.remove('opacity-0', 'pointer-events-none');
-                nextBtn.classList.add('opacity-100', 'pointer-events-auto');
-            }
-        }
-
-        // Initialize Auto Scroll for both sliders
-        document.addEventListener('DOMContentLoaded', () => {
-            setupAutoScroll('services-slider', 3000); // 3 seconds for services
-            setupAutoScroll('work-slider', 4000);     // 4 seconds for work
-            setupAutoScroll('testimonial-slider', 3500); // 3.5 seconds for testimonials
-
-            // Attach scroll listener for visibility
-            const workContainer = document.getElementById('work-slider');
-            if (workContainer) {
-                workContainer.addEventListener('scroll', () => {
-                    updateScrollButtons('work-slider', 'work-prev', 'work-next');
+                nextBtn.addEventListener('click', () => {
+                    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
                 });
+
+                prevBtn.addEventListener('click', () => {
+                    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
+
+                container.addEventListener('scroll', updateButtons);
                 // Initial check
-                updateScrollButtons('work-slider', 'work-prev', 'work-next');
+                setTimeout(updateButtons, 500);
             }
+
+            // Function for Auto-Scroll Sliders with Touch Pause
+            function setupAutoScroll(elementId, intervalTime) {
+                const element = document.getElementById(elementId);
+                if (!element) return;
+
+                let interval;
+                let isPaused = false;
+
+                const startScroll = () => {
+                    if(interval) clearInterval(interval); // Clear existing to prevent duplicates
+                    interval = setInterval(() => {
+                        if (!isPaused) {
+                            // Check if at end, scroll to start
+                            if (element.scrollLeft + element.clientWidth >= element.scrollWidth - 5) {
+                                element.scrollTo({ left: 0, behavior: 'smooth' });
+                            } else {
+                                element.scrollBy({ left: 350, behavior: 'smooth' });
+                            }
+                        }
+                    }, intervalTime);
+                };
+
+                startScroll();
+
+                // Pause on interaction
+                element.addEventListener('mouseenter', () => isPaused = true);
+                element.addEventListener('mouseleave', () => isPaused = false);
+                element.addEventListener('touchstart', () => isPaused = true);
+                element.addEventListener('touchend', () => isPaused = false);
+            }
+
+            // Setup sliders
+            setupSlider('services-slider', 'services-prev', 'services-next');
+            setupSlider('work-slider', 'work-prev', 'work-next');
+
+            // Setup Auto-Scroll
+            setupAutoScroll('services-slider', 3000);
+            setupAutoScroll('work-slider', 4000);
+            setupAutoScroll('testimonial-slider', 3500);
+
+
+            // --- 2. PROFESSIONAL ANIMATIONS ---
+
+            // Floating Navbar Effect
+            const navbar = document.querySelector('nav');
+            if(navbar) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'dark:bg-surface-dark/90');
+                        navbar.classList.remove('bg-transparent');
+                    } else {
+                        navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'dark:bg-surface-dark/90');
+                        navbar.classList.add('bg-transparent');
+                    }
+                });
+            }
+
+            // Back to Top Button Logic
+            const backToTopBtn = document.getElementById('backToTop');
+            if(backToTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                    } else {
+                        backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                    }
+                });
+            }
+
+            // Animated Statistics (Count Up)
+            const stats = document.querySelectorAll('.stat-number');
+            const observerOptions = { threshold: 0.5 };
+
+            const statsObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const finalValue = parseInt(target.innerText) || parseInt(target.getAttribute('data-target'));
+
+                        if(!finalValue) return;
+
+                        const duration = 2000;
+                        const stepTime = 20;
+                        const steps = duration / stepTime;
+                        const increment = finalValue / steps;
+                        let current = 0;
+
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= finalValue) {
+                                target.innerText = finalValue + "+";
+                                clearInterval(timer);
+                            } else {
+                                target.innerText = Math.floor(current) + "+";
+                            }
+                        }, stepTime);
+
+                        observer.unobserve(target);
+                    }
+                });
+            }, observerOptions);
+
+            stats.forEach(stat => {
+                // Store initial value
+                const value = parseInt(stat.innerText);
+                if (!isNaN(value)) {
+                    stat.setAttribute('data-target', value);
+                    stat.innerText = '0+'; // Start at 0
+                    statsObserver.observe(stat);
+                }
+            });
+
         });
     </script>
 </body>
