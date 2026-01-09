@@ -850,7 +850,7 @@
         <!-- Testimonials -->
         <section class="py-24 px-4 sm:px-10">
             <div class="max-w-[960px] mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade-up">Stores by Ecom with Qamar</h2>
+                <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade-up">Stores by Us</h2>
                 <div class="slider-container overflow-hidden w-full relative" data-aos="fade-up" data-aos-delay="200">
                     <!-- Gradient overlays for fade effect -->
                     <div
@@ -1163,7 +1163,7 @@
                 </a>
             </div>
             <p class="text-sm text-neutral-500 dark:text-neutral-400">
-                © 2026 Qamarzamannaul. All rights reserved.
+                © 2026 E-commerce with Qamar Abbas. All rights reserved.
             </p>
         </div>
     </footer>
@@ -1494,31 +1494,39 @@ Running Meta Ads: ${runAds}`;
                 });
             }
 
-            // Animated Statistics (Count Up)
+            // --- Stats Animation ---
             const stats = document.querySelectorAll('.stat-number');
-            const observerOptions = { threshold: 0.5 };
+            const observerOptions = {
+                threshold: 0.5
+            };
 
             const statsObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const target = entry.target;
-                        const finalValue = parseInt(target.innerText) || parseInt(target.getAttribute('data-target'));
+                        const originalText = target.getAttribute('data-original');
+                        // Extract number and suffix/prefix using Regex
+                        const match = originalText.match(/([^\d]*)(\d+)([^\d]*)/);
+                        
+                        if (!match) return;
 
-                        if(!finalValue) return;
+                        const prefix = match[1] || '';
+                        const value = parseInt(match[2]);
+                        const suffix = match[3] || '';
 
                         const duration = 2000;
                         const stepTime = 20;
                         const steps = duration / stepTime;
-                        const increment = finalValue / steps;
+                        const increment = value / steps;
                         let current = 0;
 
                         const timer = setInterval(() => {
                             current += increment;
-                            if (current >= finalValue) {
-                                target.innerText = finalValue + "+";
+                            if (current >= value) {
+                                target.innerText = originalText;
                                 clearInterval(timer);
                             } else {
-                                target.innerText = Math.floor(current) + "+";
+                                target.innerText = prefix + Math.floor(current) + suffix;
                             }
                         }, stepTime);
 
@@ -1528,13 +1536,16 @@ Running Meta Ads: ${runAds}`;
             }, observerOptions);
 
             stats.forEach(stat => {
-                // Store initial value
-                const value = parseInt(stat.innerText);
-                if (!isNaN(value)) {
-                    stat.setAttribute('data-target', value);
-                    stat.innerText = '0+'; // Start at 0
-                    statsObserver.observe(stat);
-                }
+                // Store initial text
+                const text = stat.innerText;
+                stat.setAttribute('data-original', text);
+                
+                // Set initial state based on pattern
+                 const match = text.match(/([^\d]*)(\d+)([^\d]*)/);
+                 if (match) {
+                     stat.innerText = match[1] + '0' + match[3]; // Start at 0 with prefix/suffix
+                     statsObserver.observe(stat);
+                 }
             });
 
             // --- 3D Tilt Effect ---
