@@ -6,7 +6,23 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" name="viewport" />
     <meta name="theme-color" content="#195de6" />
-    <title>Digital Marketer Portfolio</title>
+    <title>Qamar Abbas | E-Commerce Scaling Expert</title>
+    <meta name="description" content="Expert digital marketer specializing in SEO, Social Media, and E-Commerce growth strategies. Helping businesses scale revenue & retention.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Qamar Abbas | E-Commerce Scaling Expert">
+    <meta property="og:description" content="Expert digital marketer specializing in SEO, Social Media, and E-Commerce growth strategies.">
+    <meta property="og:image" content="./images/hero_new.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Qamar Abbas | E-Commerce Scaling Expert">
+    <meta property="twitter:description" content="Expert digital marketer specializing in SEO, Social Media, and E-Commerce growth strategies.">
+    <meta property="twitter:image" content="./images/hero_new.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./images/favicon.png">
     <!-- Material Symbols Link -->
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -250,6 +266,10 @@
 
 <body
     class="bg-background-light dark:bg-background-dark text-neutral-900 dark:text-neutral-50 font-display antialiased overflow-x-hidden">
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-primary to-blue-400 z-[60] transition-all duration-100 ease-out" style="width: 0%"></div>
+
     <!-- Immediate Mobile Menu Setup -->
     <script>
         // Execute immediately without waiting
@@ -303,9 +323,20 @@
                         href="https://wa.me/923063783658" target="_blank">
                         Hire Me
                     </a>
+                    <!-- Theme Toggle (Desktop) -->
+                    <button id="theme-toggle" type="button" aria-label="Toggle Dark Mode"
+                        class="p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-neutral-600 dark:text-neutral-400">
+                        <span class="material-symbols-outlined block dark:hidden">dark_mode</span>
+                        <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+                    </button>
                 </div>
-                <!-- Mobile Menu Button (Icon only for visual) -->
-                <div class="md:hidden">
+                <!-- Mobile Menu Button & Theme Toggle -->
+                <div class="md:hidden flex items-center gap-2">
+                    <button id="theme-toggle-mobile" type="button" aria-label="Toggle Dark Mode"
+                        class="p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-neutral-600 dark:text-neutral-400">
+                        <span class="material-symbols-outlined block dark:hidden">dark_mode</span>
+                        <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+                    </button>
                     <button id="mobile-menu-btn" class="text-neutral-900 dark:text-white focus:outline-none">
                         <span class="material-symbols-outlined cursor-pointer text-3xl" data-icon="menu">menu</span>
                     </button>
@@ -353,7 +384,7 @@
                         </a>
                         <a class="btn-secondary flex items-center justify-center rounded-lg h-12 px-8 bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-white font-bold"
                             href="https://wa.me/923063783658" target="_blank">
-                            Contact Me
+                            Hire Me
                         </a>
                     </div>
                 </div>
@@ -383,36 +414,59 @@
                     <h2 class="text-3xl font-bold tracking-tight">About Me</h2>
                     <div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                    <div class="md:col-span-2" data-aos="fade-right">
-                        <p class="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                <!-- Layout Change: Stack Text and Grid -->
+                <div class="flex flex-col gap-12 mb-12">
+                    <!-- About Text (Centered) -->
+                    <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+                        <p class="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed active:scale-[1.01] transition-transform duration-300">
                             I am a digital marketer with over 8 years of experience helping brands scale. My approach
                             combines data analytics with creative storytelling to deliver measurable results. I don't
                             just run ads; I build ecosystems that nurture leads into loyal customers. Certified in
                             Google Ads, GA4, and HubSpot Inbound Marketing.
                         </p>
-                        <div class="mt-6 flex gap-4">
+                        <div class="mt-8 flex gap-4 justify-center">
                             <span
-                                class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium">
-                                <span class="material-symbols-outlined text-sm">verified</span> Google Certified
+                                class="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-bold shadow-sm hover:-translate-y-1 transition-transform">
+                                <span class="material-symbols-outlined text-base">verified</span> Google Certified
                             </span>
                             <span
-                                class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-sm font-medium">
-                                <span class="material-symbols-outlined text-sm">hub</span> HubSpot Partner
+                                class="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-sm font-bold shadow-sm hover:-translate-y-1 transition-transform">
+                                <span class="material-symbols-outlined text-base">hub</span> HubSpot Partner
                             </span>
                         </div>
                     </div>
-                    <!-- Stats Card -->
-                    <div class="grid grid-cols-1 gap-4" data-aos="fade-left">
+
+                    <!-- Stats Grid (Responsive) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="200">
+                        <!-- Stat 1 -->
                         <div
-                            class="flex flex-col justify-center p-6 bg-background-light dark:bg-background-dark rounded-xl border border-neutral-200 dark:border-neutral-800">
-                            <p class="text-4xl font-black text-primary">2+</p>
-                            <p class="text-sm font-medium text-neutral-500 uppercase tracking-wide">Years Experience</p>
+                            class="group hover:-translate-y-2 transition-transform duration-300 flex flex-col justify-center p-8 bg-background-light dark:bg-background-dark rounded-2xl border border-neutral-200 dark:border-neutral-800 text-center shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
+                            <p class="text-5xl font-black text-primary mb-2 stat-number">2+</p>
+                            <p class="text-sm font-bold text-neutral-500 uppercase tracking-wider">Years Experience</p>
                         </div>
+                        <!-- Stat 2 -->
                         <div
-                            class="flex flex-col justify-center p-6 bg-background-light dark:bg-background-dark rounded-xl border border-neutral-200 dark:border-neutral-800">
-                            <p class="text-4xl font-black text-primary">$2M+</p>
-                            <p class="text-sm font-medium text-neutral-500 uppercase tracking-wide">Ad Spend Managed</p>
+                            class="group hover:-translate-y-2 transition-transform duration-300 flex flex-col justify-center p-8 bg-background-light dark:bg-background-dark rounded-2xl border border-neutral-200 dark:border-neutral-800 text-center shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
+                            <p class="text-5xl font-black text-primary mb-2 stat-number">2M+</p>
+                            <p class="text-sm font-bold text-neutral-500 uppercase tracking-wider">Ad Spend Managed</p>
+                        </div>
+                        <!-- Stat 3 -->
+                        <div
+                            class="group hover:-translate-y-2 transition-transform duration-300 flex flex-col justify-center p-8 bg-background-light dark:bg-background-dark rounded-2xl border border-neutral-200 dark:border-neutral-800 text-center shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
+                            <p class="text-2xl font-black text-primary mb-2">LEADS EXPERT</p>
+                            <p class="text-sm font-bold text-neutral-500 uppercase tracking-wider">Lead Generation</p>
+                        </div>
+                        <!-- Stat 4 -->
+                        <div
+                            class="group hover:-translate-y-2 transition-transform duration-300 flex flex-col justify-center p-8 bg-background-light dark:bg-background-dark rounded-2xl border border-neutral-200 dark:border-neutral-800 text-center shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
+                            <p class="text-2xl font-black text-primary mb-2">E-COMMERCE</p>
+                            <p class="text-sm font-bold text-neutral-500 uppercase tracking-wider">Store Growth Success</p>
+                        </div>
+                         <!-- Stat 5 -->
+                         <div
+                            class="group hover:-translate-y-2 transition-transform duration-300 flex flex-col justify-center p-8 bg-background-light dark:bg-background-dark rounded-2xl border border-neutral-200 dark:border-neutral-800 text-center shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 sm:col-span-2 lg:col-span-1">
+                            <p class="text-2xl font-black text-primary mb-2">SHOPIFY</p>
+                            <p class="text-sm font-bold text-neutral-500 uppercase tracking-wider">CRO & Setup Expert</p>
                         </div>
                     </div>
                 </div>
@@ -1010,6 +1064,33 @@
                                     <option>PKR 300,000+</option>
                                 </select>
                             </div>
+                            <!-- New Conditional Fields -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-bold text-neutral-700 dark:text-neutral-300">Are you Running Meta Ads?</label>
+                                    <select id="runAds" onchange="toggleSalesField()"
+                                        class="w-full px-4 py-3 rounded-lg bg-neutral-50 dark:bg-background-dark border border-neutral-200 dark:border-neutral-700 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all">
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
+                                    </select>
+                                </div>
+                                <div id="salesField" class="flex flex-col gap-2 hidden">
+                                    <label class="text-sm font-bold text-neutral-700 dark:text-neutral-300">What's your Monthly Sales?</label>
+                                    <select id="monthlySales"
+                                        class="w-full px-4 py-3 rounded-lg bg-neutral-50 dark:bg-background-dark border border-neutral-200 dark:border-neutral-700 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all">
+                                        <option value="Below 1M">Below 1M</option>
+                                        <option value="1M To 2M">1M To 2M</option>
+                                        <option value="2M To 3M">2M To 3M</option>
+                                        <option value="3M+">3M+</option>
+                                    </select>
+                                </div>
+                            </div>
+                             <div class="flex flex-col gap-2">
+                                <label class="text-sm font-bold text-neutral-700 dark:text-neutral-300">On what Platforms do you want to Run Business?</label>
+                                <input id="platforms"
+                                    class="w-full px-4 py-3 rounded-lg bg-neutral-50 dark:bg-background-dark border border-neutral-200 dark:border-neutral-700 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                                    placeholder="e.g. Facebook, Instagram, Shopify..." type="text" />
+                            </div>
                             <div class="flex flex-col gap-2">
                                 <label class="text-sm font-bold text-neutral-700 dark:text-neutral-300">Message</label>
                                 <textarea id="message"
@@ -1172,8 +1253,27 @@ Message: ${message}`;
             const container = document.getElementById(containerId);
             if (!container) return;
 
-            let autoScrollInterval;
+            const startAutoScroll = () => {
+                autoScrollInterval = setInterval(() => {
+                    // Check if we reached the end
+                    if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+                        container.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        container.scrollBy({ left: 350, behavior: 'smooth' });
+                    }
+                }, delay);
+            };
 
+            const stopAutoScroll = () => clearInterval(autoScrollInterval);
+
+            container.addEventListener('mouseenter', stopAutoScroll);
+            container.addEventListener('mouseleave', startAutoScroll);
+            container.addEventListener('touchstart', stopAutoScroll); // Mobile touch
+            container.addEventListener('touchend', startAutoScroll);
+
+            // Start initially
+            startAutoScroll();
+        }
 
         document.addEventListener('DOMContentLoaded', function () {
 
@@ -1194,19 +1294,77 @@ Message: ${message}`;
                 mobileMenuBtn.addEventListener('click', toggleMobileMenu);
             }
 
+            // --- Theme Toggle Logic ---
+            const html = document.documentElement;
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+
+            // Initialize Theme
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+
+            function toggleTheme() {
+                if (html.classList.contains('dark')) {
+                    html.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    html.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            }
+
+            if(themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+            if(themeToggleMobileBtn) themeToggleMobileBtn.addEventListener('click', toggleTheme);
+
+
+
             // --- Send to WhatsApp Form Logic ---
+            // --- Send to WhatsApp Form Logic ---
+            window.toggleSalesField = function() {
+                const runAds = document.getElementById('runAds').value;
+                const salesField = document.getElementById('salesField');
+                if (runAds === 'Yes') {
+                    salesField.classList.remove('hidden');
+                } else {
+                    salesField.classList.add('hidden');
+                }
+            }
+
             window.sendToWhatsapp = function() { // Make it globally accessible for onclick attribute
                 const name = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
                 const budget = document.getElementById('budget').value;
                 const message = document.getElementById('message').value;
+                
+                // New Fields
+                const runAds = document.getElementById('runAds').value;
+                const salesField = document.getElementById('salesField');
+                const monthlySales = document.getElementById('monthlySales').value;
+                const platforms = document.getElementById('platforms').value;
 
                 if (!name || !email || !message) {
                     alert('Please fill in all required fields (Name, Email, Message).');
                     return;
                 }
 
-                const text = `*New Project Inquiry*\nName: ${name}\nEmail: ${email}\nBudget: ${budget}\nMessage: ${message}`;
+                let text = `*New Project Inquiry*
+Name: ${name}
+Email: ${email}
+Budget: ${budget}
+Running Meta Ads: ${runAds}`;
+
+                if (runAds === 'Yes') {
+                    text += `\nMonthly Sales: ${monthlySales}`;
+                }
+                
+                if (platforms) {
+                    text += `\nTarget Platforms: ${platforms}`;
+                }
+
+                text += `\nMessage: ${message}`;
 
                 const encodedText = encodeURIComponent(text);
                 const phoneNumber = "923063783658";
@@ -1304,12 +1462,22 @@ Message: ${message}`;
             const navbar = document.querySelector('nav');
             if(navbar) {
                 window.addEventListener('scroll', () => {
+                    // Navbar Effect
                     if (window.scrollY > 50) {
                         navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'dark:bg-surface-dark/90');
                         navbar.classList.remove('bg-transparent');
                     } else {
                         navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'dark:bg-surface-dark/90');
                         navbar.classList.add('bg-transparent');
+                    }
+                    
+                    // Scroll Progress
+                    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrolled = (winScroll / height) * 100;
+                    const progressBar = document.getElementById('scroll-progress');
+                    if(progressBar) {
+                        progressBar.style.width = scrolled + "%";
                     }
                 });
             }
@@ -1368,6 +1536,33 @@ Message: ${message}`;
                     statsObserver.observe(stat);
                 }
             });
+
+            // --- 3D Tilt Effect ---
+            function initTilt() {
+                const cards = document.querySelectorAll('#services-slider .group, #work-slider .group');
+                cards.forEach(card => {
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        
+                        // Limit tilt to 10 degrees
+                        const rotateX = ((y - centerY) / centerY) * -10; 
+                        const rotateY = ((x - centerX) / centerX) * 10;
+        
+                        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                        card.style.transition = 'transform 0.1s ease'; 
+                    });
+        
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+                        card.style.transition = 'transform 0.5s ease';
+                    });
+                });
+            }
+            initTilt();
 
         });
     </script>
