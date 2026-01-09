@@ -406,7 +406,7 @@
                     <div class="grid grid-cols-1 gap-4" data-aos="fade-left">
                         <div
                             class="flex flex-col justify-center p-6 bg-background-light dark:bg-background-dark rounded-xl border border-neutral-200 dark:border-neutral-800">
-                            <p class="text-4xl font-black text-primary">8+</p>
+                            <p class="text-4xl font-black text-primary">2+</p>
                             <p class="text-sm font-medium text-neutral-500 uppercase tracking-wide">Years Experience</p>
                         </div>
                         <div
@@ -430,12 +430,12 @@
                 </div>
 
                 <!-- Slider Buttons -->
-                <button onclick="scrollContainer('services-slider', 'left')"
-                    class="absolute left-2 top-1/2 z-10 -translate-y-1/2 bg-white dark:bg-surface-dark shadow-lg rounded-full p-2 text-neutral-800 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all opacity-0 group-hover/slider:opacity-100 hidden md:block border border-neutral-200 dark:border-neutral-800">
+                <button id="services-prev"
+                    class="absolute left-2 top-1/2 z-10 -translate-y-1/2 bg-white dark:bg-surface-dark shadow-lg rounded-full p-2 text-neutral-800 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all opacity-0 pointer-events-none md:opacity-0 md:group-hover/slider:opacity-100 border border-neutral-200 dark:border-neutral-800">
                     <span class="material-symbols-outlined">arrow_back</span>
                 </button>
-                <button onclick="scrollContainer('services-slider', 'right')"
-                    class="absolute right-2 top-1/2 z-10 -translate-y-1/2 bg-white dark:bg-surface-dark shadow-lg rounded-full p-2 text-neutral-800 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all opacity-0 group-hover/slider:opacity-100 hidden md:block border border-neutral-200 dark:border-neutral-800">
+                <button id="services-next"
+                    class="absolute right-2 top-1/2 z-10 -translate-y-1/2 bg-white dark:bg-surface-dark shadow-lg rounded-full p-2 text-neutral-800 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all opacity-100 md:opacity-0 md:group-hover/slider:opacity-100 border border-neutral-200 dark:border-neutral-800">
                     <span class="material-symbols-outlined">arrow_forward</span>
                 </button>
 
@@ -540,16 +540,12 @@
                 </div>
 
                 <!-- Slider Buttons -->
-                <button onclick="scrollContainer('work-slider', 'left')"
-                    class="absolute left-2 top-[60%] z-10 -translate-y-1/2 bg-white dark:bg-surface-dark shadow-lg rounded-full p-2 text-neutral-800 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all opacity-0 group-hover/slider:opacity-100 hidden md:block border border-neutral-200 dark:border-neutral-800">
+                <button id="work-prev"
+                    class="absolute left-2 top-[60%] z-10 -translate-y-1/2 bg-white dark:bg-surface-dark shadow-lg rounded-full p-2 text-neutral-800 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all opacity-0 pointer-events-none md:opacity-0 md:group-hover/slider:opacity-100 border border-neutral-200 dark:border-neutral-800">
                     <span class="material-symbols-outlined">arrow_back</span>
                 </button>
-                <button id="work-prev" onclick="scrollContainer('work-slider', 'left')"
-                    class="absolute left-2 top-[60%] z-10 -translate-y-1/2 bg-white dark:bg-surface-dark shadow-lg rounded-full p-2 text-neutral-800 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all opacity-0 pointer-events-none hidden md:block border border-neutral-200 dark:border-neutral-800">
-                    <span class="material-symbols-outlined">arrow_back</span>
-                </button>
-                <button id="work-next" onclick="scrollContainer('work-slider', 'right')"
-                    class="absolute right-2 top-[60%] z-10 -translate-y-1/2 bg-white dark:bg-surface-dark shadow-lg rounded-full p-2 text-neutral-800 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all opacity-100 hidden md:block border border-neutral-200 dark:border-neutral-800">
+                <button id="work-next"
+                    class="absolute right-2 top-[60%] z-10 -translate-y-1/2 bg-white dark:bg-surface-dark shadow-lg rounded-full p-2 text-neutral-800 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all opacity-100 md:opacity-0 md:group-hover/slider:opacity-100 border border-neutral-200 dark:border-neutral-800">
                     <span class="material-symbols-outlined">arrow_forward</span>
                 </button>
 
@@ -994,14 +990,14 @@
                                     <label class="text-sm font-bold text-neutral-700 dark:text-neutral-300">Name</label>
                                     <input id="name"
                                         class="w-full px-4 py-3 rounded-lg bg-neutral-50 dark:bg-background-dark border border-neutral-200 dark:border-neutral-700 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                                        placeholder="John Doe" type="text" />
+                                        placeholder="Enter your name" type="text" />
                                 </div>
                                 <div class="flex flex-col gap-2">
                                     <label
                                         class="text-sm font-bold text-neutral-700 dark:text-neutral-300">Email</label>
                                     <input id="email"
                                         class="w-full px-4 py-3 rounded-lg bg-neutral-50 dark:bg-background-dark border border-neutral-200 dark:border-neutral-700 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                                        placeholder="john@company.com" type="email" />
+                                        placeholder="Enter your email" type="email" />
                                 </div>
                             </div>
                             <div class="flex flex-col gap-2">
